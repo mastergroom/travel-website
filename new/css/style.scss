@@ -1,0 +1,123 @@
+$white: #ffffff;
+$black: #000000;
+$btnColor: #ed3a5a;
+
+@mixin main-font {
+  font-family: "Poppins", sans-serif;
+}
+
+@mixin secondary-font {
+  font-family: "Poppins", sans-serif;
+}
+
+@mixin hero_btn($col1, $col2, $pad1, $pad2, $bRadius) {
+  display: inline-block;
+  background: $col1;
+  color: $col2;
+  padding: $pad1 $pad2;
+  border-radius: $bRadius;
+  border: 1px solid $col1;
+  transition: all 0.3s;
+
+  &:hover {
+    background: transparent;
+    color: $col1;
+  }
+}
+
+@mixin upperBold {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+.package_section {
+  text-align: center;
+
+  .heading_container {
+    justify-content: center;
+  }
+
+  .package_container {
+    display: flex;
+    justify-content: center;
+    padding-top: 45px;
+    flex-wrap: wrap;
+
+    .box {
+      margin: 10px;
+      flex-basis: calc(33% - 20px);
+      border: 15px solid $white;
+      border-radius: 15px;
+      padding: 25px 25px 25px;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-image: url(../images/package-bg1.jpg);
+      background-position: bottom;
+      background-size: cover;
+      transition: all .2s;
+
+      .detail-box {
+        margin-top: 25px;
+
+        h4 {
+          color: #313132;
+          font-size: 1.4rem;
+          margin-bottom: 55px;
+        }
+
+        .price_detail {
+          background-color: #ffffff;
+          color: #212122;
+          padding: 15px;
+          border-radius: 5px;
+        }
+
+        h5 {
+          font-weight: 600;
+          position: relative;
+        }
+
+        p {
+          margin-top: 15px;
+          margin-bottom: 0;
+        }
+
+        a {
+          @include hero_btn(#2c2d2e,
+            $white,
+            8px,
+            35px,
+            25px);
+          margin-top: 45px;
+          transition: none;
+          border: none;
+
+          &:hover {
+            background: none;
+            color: $white;
+            background: linear-gradient(to right, #3182cb, #2eb19c);
+          }
+        }
+      }
+
+      &:hover,
+      &.active {
+        background-image: url(../images/package-bg2.jpg);
+
+        .detail-box {
+          .price_detail {
+            background-color: #1dc2b2;
+            color: $white;
+          }
+        }
+      }
+    }
+  }
+}
